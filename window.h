@@ -21,6 +21,8 @@ private slots:
 private:
     RenderArea * ra;
     QLabel *l_L;
+    QLabel *l_B;
+    QLabel *l_D;
     QTextEdit *e_B;
     QTextEdit *e_D;
     QTextEdit *e_L;

@@ -10,16 +10,20 @@ Window::Window()
     ra = new RenderArea;
 
     l_L = new QLabel(tr("ASCII Symbol:"));
+    l_B = new QLabel(tr("Binary:"));
+    l_D = new QLabel(tr("Decimal:"));
     e_L = new QTextEdit();
     e_B = new QTextEdit();
     e_D = new QTextEdit();
 
     QGridLayout *mainLayout = new QGridLayout;
-    mainLayout->addWidget(ra, 0,0,1,4);
-    mainLayout->addWidget(l_L, 2,0, Qt::AlignRight);
-    mainLayout->addWidget(e_L, 2,1, Qt::AlignRight);
-    mainLayout->addWidget(e_B, 2,2, Qt::AlignRight);
-    mainLayout->addWidget(e_D, 2,3, Qt::AlignRight);
+    mainLayout->addWidget(ra, 0,0,1,3);
+    mainLayout->addWidget(l_L, 2,0, Qt::AlignLeft);
+    mainLayout->addWidget(l_B, 2,1, Qt::AlignLeft);
+    mainLayout->addWidget(l_D, 2,2, Qt::AlignLeft);
+    mainLayout->addWidget(e_L, 3,0, Qt::AlignRight);
+    mainLayout->addWidget(e_B, 3,1, Qt::AlignRight);
+    mainLayout->addWidget(e_D, 3,2, Qt::AlignRight);
 
     connect(e_L, &QTextEdit::textChanged, this, &Window::changed);
 
