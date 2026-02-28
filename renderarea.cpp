@@ -21,13 +21,15 @@ QSize RenderArea::sizeHint() const{
 }
 
 void RenderArea::set(QString b){
-    bits[0] = 1; bits[1] = 0;
-    if(b.isEmpty()){
+    bits[0] = 1;
+    if(b.isEmpty() || !b.contains('1')){
+        bits[1] = 1;
         for(int i = 0; i<8;++i){
-            bits[i+2] = 0;
+            bits[i+2] = 1;
         }
     }
     else{
+        bits[1] = 0;
         for(int i = 0; i<8;++i){
             bits[i+2] = b.at(7-i)=='1';
         }
