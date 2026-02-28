@@ -1,5 +1,8 @@
 The fact that I chose to write a project to solve a university task as the only satisfying break between tutoring on weekend confirms that I need immediate psychotherapy for several years now.
-Once again 
+
+
+
+Once again a project to draw things I did not want to draw by hand for a small university task,
 
 # ByteSign(al)-Visualizer
 ## an ASCII to RS232 parser
