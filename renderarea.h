@@ -9,6 +9,8 @@ class RenderArea : public QWidget
 public:
     explicit RenderArea(QWidget *parent = nullptr);
     bool bits[12];
+    QString bitstring;
+    bool showBits = false;
 
     QSize minimumSizeHint() const override;
     QSize sizeHint() const override;

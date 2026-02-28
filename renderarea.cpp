@@ -21,6 +21,7 @@ QSize RenderArea::sizeHint() const{
 }
 
 void RenderArea::set(QString b){
+    bitstring = b;
     bits[0] = 1;
     if(b.isEmpty() || !b.contains('1')){
         bits[1] = 1;
@@ -49,14 +50,14 @@ void RenderArea::paintEvent(QPaintEvent *e){
     brush.setColor(Qt::GlobalColor::yellow);
     painter.setPen(QPen(brush,2));
 
-    int v_offset = canvas.height()/10;
-    int h_step = canvas.width()/12;
+    float v_offset = canvas.height()/10.F;
+    float h_step = canvas.width()/12.F;
 
 
     QPoint points[24];
     QPainterPath path;
     for(int i = 0; i<12; ++i){
-        int height =
+        float height =
             !bits[i] ? v_offset : canvas.height()-v_offset;
         points[i*2] = QPoint(h_step*i, height);
         points[i*2+1] = QPoint(h_step*(i+1), height);
@@ -68,9 +69,20 @@ void RenderArea::paintEvent(QPaintEvent *e){
 
 
     painter.drawPath(path);
+
+    if(showBits){
+        painter.setFont(painter.font());
+        painter.drawText(QPoint(1.25*h_step, canvas.height()-v_offset/2), "Stop");
+        for(int i = 0; i<8; ++i){
+            painter.drawText(QPoint((2.5+i)*h_step, canvas.height()-v_offset/2), bitstring.at(7-i));
+        }
+        painter.drawText(QPoint(canvas.width()-1.75*h_step, canvas.height()-v_offset/2), "Start");
+    }
+
     brush.setColor(Qt::GlobalColor::black);
     painter.setPen(QPen(brush,2));
     painter.drawPoints(points, 24);
+
 
 
 }
