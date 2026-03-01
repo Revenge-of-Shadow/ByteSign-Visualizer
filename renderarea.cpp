@@ -6,7 +6,7 @@
 
 
 RenderArea::RenderArea(QWidget *parent)
-    : QWidget{parent}
+: QWidget{parent}
 {
     setBackgroundRole(QPalette::Base);
     setAutoFillBackground(false);
@@ -78,11 +78,12 @@ void RenderArea::paintEvent(QPaintEvent *e){
         }
         painter.drawText(QPoint(canvas.width()-1.75*h_step, canvas.height()-v_offset/2), "Start");
     }
+    else{
 
-    brush.setColor(Qt::GlobalColor::black);
-    painter.setPen(QPen(brush,2));
-    painter.drawPoints(points, 24);
-
+        brush.setColor(Qt::GlobalColor::black);
+        painter.setPen(QPen(brush,2));
+        painter.drawPoints(points, 24);
+    }
 
 
 }
