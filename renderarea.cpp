@@ -72,11 +72,11 @@ void RenderArea::paintEvent(QPaintEvent *e){
 
     if(showBits){
         painter.setFont(painter.font());
-        painter.drawText(QPoint(1.25*h_step, canvas.height()-v_offset/2), "Stop");
+        painter.drawText(QPoint(1.25*h_step, canvas.height()-v_offset/2), "Start");
         for(int i = 0; i<8; ++i){
             painter.drawText(QPoint((2.5+i)*h_step, canvas.height()-v_offset/2), bitstring.at(7-i));
         }
-        painter.drawText(QPoint(canvas.width()-1.75*h_step, canvas.height()-v_offset/2), "Start");
+        painter.drawText(QPoint(canvas.width()-1.75*h_step, canvas.height()-v_offset/2), "Stop");
     }
     else{
 
